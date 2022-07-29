@@ -1,0 +1,7 @@
+{
+  "name": "Unik",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
