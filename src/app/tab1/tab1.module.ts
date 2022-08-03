@@ -5,6 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { Tab1Page } from './tab1.page';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
 
+import { NgChartsModule } from 'ng2-charts';
+
 import { Tab1PageRoutingModule } from './tab1-routing.module';
 
 @NgModule({
@@ -13,7 +15,8 @@ import { Tab1PageRoutingModule } from './tab1-routing.module';
     CommonModule,
     FormsModule,
     ExploreContainerComponentModule,
-    Tab1PageRoutingModule
+    Tab1PageRoutingModule,
+    NgChartsModule
   ],
   declarations: [Tab1Page]
 })

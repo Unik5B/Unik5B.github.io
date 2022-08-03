@@ -1,0 +1,38 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Login
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="content-center">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>login</ion-card-title>
+      </ion-card-header>
+    
+      <ion-card-content>
+        <ion-item>
+          <ion-label position="floating">Email</ion-label>
+          <ion-input type="email" id="input_email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">password</ion-label>
+          <ion-input type="password" id="input_password"></ion-input>
+        </ion-item>
+        <ion-button expand="block" size="large" shape="round" (click)="login()">login</ion-button>
+
+        <ion-button  (click)="resetPassword()">
+          forrgote password?
+        </ion-button>
+        
+        <ion-button (click)="resetPassword()">
+          register
+        </ion-button>
+        
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
