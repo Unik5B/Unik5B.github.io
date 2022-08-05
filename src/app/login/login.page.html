@@ -22,15 +22,15 @@
           <ion-label position="floating">password</ion-label>
           <ion-input type="password" id="input_password"></ion-input>
         </ion-item>
-        <ion-button expand="block" size="large" shape="round" (click)="login()">login</ion-button>
+        <ion-button expand="block" routerLink="/user" size="large" shape="round" (click)="login()">login</ion-button>
 
-        <ion-button  (click)="resetPassword()">
+        <button class="direction" (click)="resetPassword()">
           forrgote password?
-        </ion-button>
+        </button>
         
-        <ion-button (click)="resetPassword()">
+        <button class="direction" #button routerLink="/register">
           register
-        </ion-button>
+        </button>
         
       </ion-card-content>
     </ion-card>

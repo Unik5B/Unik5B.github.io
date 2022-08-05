@@ -31,6 +31,9 @@ export class LoginPage implements OnInit {
   resetPassword(){
     console.log('reset password...')
   }
+  goRegister(){
+    
+  }
 
 }
 
