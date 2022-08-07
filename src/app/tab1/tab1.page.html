@@ -13,6 +13,8 @@
     </ion-toolbar>
   </ion-header>
 
+
+
 <ion-card>
   <ion-item>
     <ion-icon name="alarm-outline"></ion-icon>
@@ -30,13 +32,13 @@
 </ion-item>
 </ion-card-content>
 
-<!--<div class="content-center" style="display: block;">
-  <canvas baseChart width="300" height="300"
-    [type]="'line'"
-    [data]="lineChartData"
-    [options]="lineChartOptions"
-    [legend]="lineChartLegend">
-  </canvas>
-</div>-->
+<canvas baseChart
+        [labels]="doughnutChartLabels"
+        [datasets]="doughnutChartDatasets"
+        [options]="doughnutChartOptions"
+        [legend]="true"
+        [type]="'doughnut'">
+</canvas>
+
 
 </ion-content>

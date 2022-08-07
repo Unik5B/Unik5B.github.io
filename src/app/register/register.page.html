@@ -8,29 +8,31 @@
   <ion-card-content>
     <ion-item>
       <ion-label position="floating">name</ion-label>
-      <ion-input type="text" id="input_email"></ion-input>
+      <ion-input #name type="text" id="input_email"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="floating">Last name</ion-label>
-      <ion-input type="text" id="input_email"></ion-input>
+      <ion-input #last_name type="text" id="input_email"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="floating">Email</ion-label>
-      <ion-input type="email" id="input_email"></ion-input>
+      <ion-input #email type="email" id="input_email"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="floating">password</ion-label>
-      <ion-input type="password" id="input_password"></ion-input>
+      <ion-input #password type="password" id="input_password"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label position="floating">phone number</ion-label>
-      <ion-input type="number" id="input_email"></ion-input>
+      <ion-input #phone type="number" id="input_email"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="floating">product id</ion-label>
-      <ion-input type="text" id="input_email"></ion-input>
+      <ion-input #product_id type="text" id="input_email"></ion-input>
     </ion-item>
-    <ion-button expand="block" routerLink="/login" size="large" shape="round">register</ion-button>
+    <ion-button (click)="saveReister(name,last_name,email,password,phone,product_id)" expand="block"  size="large"  shape="round">register</ion-button>
     </ion-card-content>
 </ion-content>
+<!--
+routerLink="/login"-->

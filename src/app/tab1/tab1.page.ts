@@ -1,6 +1,8 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 
-import { ChartConfiguration, ChartOptions, ChartType } from "chart.js";
+import { ChartConfiguration } from 'chart.js';
+import { ProductService } from '../services/product.service';
+import { User } from '../model/user';
 
 @Component({
   selector: 'app-tab1',
@@ -8,38 +10,36 @@ import { ChartConfiguration, ChartOptions, ChartType } from "chart.js";
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
-
-  title = 'ng2-charts-demo';
-
-  public lineChartData: ChartConfiguration<'line'>['data'] = {
-    labels: [
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-      'July'
-    ],
-    datasets: [
-      {
-        data: [ 65, 59, 80, 81, 56, 55, 40 ],
-        label: 'Series A',
-        fill: true,
-        tension: 0.5,
-        borderColor: 'black',
-        backgroundColor: 'rgb(43, 43, 43)'
-      }
-    ]
-  };
-  public lineChartOptions: ChartOptions<'line'> = {
-    responsive: false
-  };
-  public lineChartLegend = true;
-
-  constructor() {
+  private users: User[];
+  constructor(
+    private Product: ProductService
+  ) {
   }
 
+  ionViewWillEnter(){
+    this.Product.getProduct().subscribe(res => console.log(res), err => console.log(err))
+    console.log('loading page...');
+    this.Product.getProduct();
+    this.Product.getProduct().subscribe(
+      apiData => {
+        var jsonData = JSON.parse(JSON.stringify(apiData));
+        this.users =  jsonData.product;
+      }
+
+    );
+    console.log(this.users);
+  }
+  title = 'ng2-charts-demo';
+    // Doughnut
+    public doughnutChartLabels: string[] = [ 'Download Sales'];
+    public doughnutChartDatasets: ChartConfiguration<'doughnut'>['data']['datasets'] = [
+        { data: [ 350,100 ], label: 'Series A' }
+      ];
+  
+    public doughnutChartOptions: ChartConfiguration<'doughnut'>['options'] = {
+      responsive: false
+    };
+    
   ngOnInit() {
   }
 }

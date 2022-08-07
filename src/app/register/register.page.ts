@@ -16,4 +16,9 @@ export class RegisterPage implements OnInit {
     this.userServices.getUser().subscribe(res => console.log(res), err => console.log(err))
   }
 
+  saveReister(name,last_name,email,password,phone,product_id){
+    console.log(name.value,last_name.value,email.value,password.value,phone.value,product_id.value)
+
+  }
+
 }
