@@ -25,4 +25,9 @@ export class UserService {
   removeUserByid(){}
 
   deleteUser(){}
+
+  updateUser(){
+    return this.http.get(this.api)
+    
+  }
 }

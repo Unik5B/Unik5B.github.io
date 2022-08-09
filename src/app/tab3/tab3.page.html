@@ -20,15 +20,9 @@
       
         
       <ion-card-content>
-      
-          
-          <ion-button expand="block" fill="clean">Login</ion-button>
-
-          <ion-button expand="block" fill="clean">Registe</ion-button>
-
-          <ion-button expand="block" size="small" color="EB5353" >information about</ion-button>
-          
-          <button class="direction" routerLink="/login">logout</button>
+        <img src="assets/img/logo-unik.png">
+          <ion-button expand="block" routerLink="/login" size="small" color="EB5353" >Logout</ion-button>
+          <ion-button expand="block" (click)="presentAlert()" size="small" color="EB5353" >delete account</ion-button>
         </ion-card-content>
 
     </div>

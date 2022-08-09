@@ -1,22 +1,29 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
 
 <ion-content>
-  <div class="content-center-left">
+  <div class="content-center">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Forgote password?</ion-card-title>
+      </ion-card-header>
     
-    <div class="login-register-desing">
-      
-      
-      <img src="assets/img/logo-unik.png">
       <ion-card-content>
-        
-        <ion-button expand="block" fill="clean">Login1</ion-button>
-
-        <ion-button expand="block" fill="clean">Register</ion-button>
-
-        <ion-button expand="block" size="small" color="EB5353" >information about</ion-button>
-        
+        <ion-item>
+          <ion-label position="floating">Email</ion-label>
+          <ion-input  #email type="email" id="email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">new password</ion-label>
+          <ion-input #passwordnew type="password" id="passwordnew"></ion-input>
+        </ion-item>
+        <ion-button expand="block" (click)="passupdate(email,passwordnew)" size="large" shape="round">change password</ion-button>        
       </ion-card-content>
-
-    </div>
+    </ion-card>
   </div>
 </ion-content>
 

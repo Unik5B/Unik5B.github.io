@@ -23,9 +23,12 @@ export class Tab1Page implements OnInit, OnDestroy {
 
 public ChartData: ChartDataset[] =[
   {data:[], label:'maxim',
-  backgroundColor:'#E8F9FD'}
+  backgroundColor:'#E8F9FD'},
+  {data:[], label:'maxim',
+  backgroundColor:'#A149FA'}
 ];
 public labels:string[]= ['Gas Licuado De petroleo'];
+
 public options: ChartOptions = {
 };
 
@@ -33,7 +36,8 @@ public options: ChartOptions = {
     this.sub = this.http.get('http://localhost:1337/products?_limit=1&_sort=createdAt:DESC')
     
     .subscribe(([data]: any)=>{
-      this.ChartData[0].data = [data.lpg,350];
+      this.ChartData[0].data = [data.lpg,350-data.lpg];
+      this.ChartData[1].data = [data.temp,350-data.temp];
       this.chart.update();
     });
    

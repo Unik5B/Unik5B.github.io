@@ -16,15 +16,17 @@
       <ion-card-content>
         <ion-item>
           <ion-label position="floating">Email</ion-label>
-          <ion-input type="email" id="input_email"></ion-input>
+          <ion-input #input_email type="email" id="input_email"></ion-input>
         </ion-item>
-        <ion-item>
-          <ion-label position="floating">password2</ion-label>
-          <ion-input type="password" id="input_password"></ion-input>
-        </ion-item>
-        <ion-button expand="block" routerLink="/user" size="large" shape="round" (click)="login()">login</ion-button>
 
-        <button class="direction" (click)="resetPassword()">
+         <ion-item>
+      <ion-label position="floating">password</ion-label>
+      <ion-input #input_password type="password" id="input_password"></ion-input>
+    </ion-item>
+       
+        <ion-button expand="block" size="large" shape="round" (click)="login(input_email,input_password)">login</ion-button>
+
+        <button class="direction" routerLink="/index">
           Forgote password?
         </button>
         

@@ -11,6 +11,7 @@ import { Tab2PageRoutingModule } from './tab2-routing.module';
 import { NgChartsModule } from 'ng2-charts';
 import { HttpClientModule } from '@angular/common/http';
 
+
 @NgModule({
   imports: [
     IonicModule,

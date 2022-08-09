@@ -9,7 +9,7 @@ import { AppComponent } from './app.component';
 
 import { NgChartsModule } from 'ng2-charts';
 
-import { HttpClientModule} from '@angular/common/http'
+import { HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],

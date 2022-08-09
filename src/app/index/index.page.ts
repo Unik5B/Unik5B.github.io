@@ -11,5 +11,9 @@ export class IndexPage implements OnInit {
 
   ngOnInit() {
   }
+  passupdate(email,passwordnew){
+    
+    console.log(email.value, passwordnew.value)
+  }
 
 }

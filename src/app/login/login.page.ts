@@ -1,5 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ToastController } from '@ionic/angular';
+import { ProductService } from '../services/product.service';
 
 
 @Component({
@@ -8,32 +10,19 @@ import { ToastController } from '@ionic/angular';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
+ 
 
-  constructor() { }
+  constructor(private Product: ProductService,private http: HttpClient) { }
 
   ngOnInit() {
-    console.log('initializing login...')
-  }
-  login(){
-    console.log('login...');
-    var email= (document.getElementById('input_email') as HTMLInputElement).value;
-    console.log(email);
-
-    interface ToastButton {
-      text?: string;
-      icon?: string;
-      side?: 'start' | 'end';
-      role?: 'cancel' | string;
-      cssClass?: string | string[];
-      handler?: () => boolean | void | Promise<boolean | void>;
-    }
-  }
-  resetPassword(){
-    console.log('reset password...')
-  }
-  goRegister(){
     
   }
+  login(input_email,input_password){
+    
+
+    
+  }
+  
 
 }
 
