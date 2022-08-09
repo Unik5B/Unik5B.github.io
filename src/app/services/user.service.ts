@@ -9,14 +9,18 @@ export class UserService {
   constructor(
     private http: HttpClient
   ) { }
-
+    api = "http://localhost:1337/users"
   getUser(){
-    return this.http.get("http://localhost:1337/users")
+    return this.http.get(this.api)
   }
 
   getUserByid(){}
 
-  createUser(){}
+  createUser(name: string,last_name:string,email: string,password: string,phone: number,product_id:string){
+    return this.http.post(this.api,{
+      name, last_name, email, password, phone, product_id
+    })
+  }
 
   removeUserByid(){}
 
