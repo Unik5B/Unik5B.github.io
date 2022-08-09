@@ -27,7 +27,6 @@ public ChartData: ChartDataset[] =[
 ];
 public labels:string[]= ['Gas Licuado De petroleo'];
 public options: ChartOptions = {
-  
 };
 
   ngOnInit() {
