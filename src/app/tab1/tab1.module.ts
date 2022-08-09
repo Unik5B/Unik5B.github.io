@@ -6,6 +6,7 @@ import { Tab1Page } from './tab1.page';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
 
 import { NgChartsModule } from 'ng2-charts';
+import {HttpClientModule} from "@angular/common/http"
 
 import { Tab1PageRoutingModule } from './tab1-routing.module';
 
@@ -13,6 +14,7 @@ import { Tab1PageRoutingModule } from './tab1-routing.module';
   imports: [
     IonicModule,
     CommonModule,
+    HttpClientModule,
     FormsModule,
     ExploreContainerComponentModule,
     Tab1PageRoutingModule,

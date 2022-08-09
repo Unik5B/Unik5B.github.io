@@ -1,3 +1,4 @@
+
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
@@ -12,6 +13,9 @@
       <ion-title size="large">Tab 1</ion-title>
     </ion-toolbar>
   </ion-header>
+
+
+  
 
 
 
@@ -32,13 +36,21 @@
 </ion-item>
 </ion-card-content>
 
-<canvas baseChart
-        [labels]="doughnutChartLabels"
-        [datasets]="doughnutChartDatasets"
-        [options]="doughnutChartOptions"
-        [legend]="true"
-        [type]="'doughnut'">
+<ion-card-content>
+  <ion-item>
+    <canvas  baseChart
+    [datasets]="ChartData"
+    [options]="options"
+    [labels]="labels"
+    [type]="'doughnut'">
 </canvas>
+</ion-item>
+</ion-card-content>
+
+
+
 
 
 </ion-content>
+
+
