@@ -1,6 +1,6 @@
 export class User {
 "_id":number;
-"numserie":string;
+"number_id":string;
 "alarm":number;
 "CO":number;
 "LPG":number;

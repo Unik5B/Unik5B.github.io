@@ -1,60 +1,93 @@
-import { Component } from '@angular/core';
-import { ChartConfiguration, ChartOptions, ChartType } from "chart.js";
+import { HttpClient } from '@angular/common/http';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { ChartConfiguration, ChartOptions, ChartDataset, ChartType } from "chart.js";
+import { BaseChartDirective } from 'ng2-charts';
+import {  Subscription } from 'rxjs';
+
+import { ProductService } from '../services/product.service';
 
 @Component({
   selector: 'app-tab2',
   templateUrl: 'tab2.page.html',
   styleUrls: ['tab2.page.scss']
 })
-export class Tab2Page {
+export class Tab2Page implements OnInit, OnDestroy {
+  @ViewChild (BaseChartDirective)chart :BaseChartDirective;
+  private sub: Subscription;
 
-  title = 'ng2-charts-demo';
-
-  public barChartLegend = true;
-  public barChartPlugins = [];
-
-  public barChartData: ChartConfiguration<'bar'>['data'] = {
-    labels: [ '2006', '2007', '2008', '2009', '2010', '2011', '2012' ],
-    datasets: [
-      { data: [ 65, 59, 80, 81, 56, 55, 40 ], label: 'Series A', backgroundColor: 'rgb(40, 255, 191)'},
-      { data: [ 28, 48, 40, 19, 86, 27, 90 ], label: 'Series B',backgroundColor: 'rgb(121, 0, 255)' }
-    ]
-  };
-
-  public barChartOptions: ChartConfiguration<'bar'>['options'] = {
-    responsive: false,
-  };
-
-  public lineChartData: ChartConfiguration<'line'>['data'] = {
-    labels: [
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-      'July'
-    ],
-    datasets: [
-      {
-        data: [ 65, 59, 80, 81, 56, 55, 40 ],
-        label: 'Series A',
-        fill: true,
-        tension: 0.5,
-        borderColor: 'black',
-        backgroundColor: 'rgb(43, 43, 43)'
-      }
-    ]
-  };
-  public lineChartOptions: ChartOptions<'line'> = {
-    responsive: false
-  };
-  public lineChartLegend = true;
-
-  
-
-
-  constructor() {
+  posts: any = [];
+  constructor(private Product: ProductService,private http: HttpClient) {
   }
+
+  ionViewWillEnter(){
+    this.Product.getPreoductLista().subscribe(
+      (res) => {
+      this.posts =res;
+      console.log(this.posts)
+
+      },
+       (err) => console.log(err));
+    
+  }
+ //------------------------------------------refresh--------------------------------------> 
+  doRefresh(event) {
+    console.log('Begin async operation');
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      event.target.complete();
+    }, 1500);
+  }
+  
+//-----------------------------------------------API chart.js----------------------------------------------->
+  public ChartData: ChartDataset[] =[
+    {data:[], label:'Temperatura',
+    backgroundColor:'#885E83', borderRadius: 20},
+    {data:[], label:'Gas Licuado De Petroleo',
+    backgroundColor:'#28FFBF', borderRadius: 20},
+  ];
+  public labels:string[]= [];
+  public options: ChartOptions = {
+    scales:{
+      x:{
+        grid: {
+          color:'#D6B0B1'
+        },
+        ticks:{
+          color:'D6B0B1'
+        }
+      },
+      y:{
+        beginAtZero: true,
+        grid: {
+          color:'#D6B0B1'
+        },
+        ticks:{
+          color:'D6B0B1'
+        }
+
+      }
+    }
+  };
+  
+  ngOnInit(){
+    this.sub = this.http.get('http://localhost:1337/products?_limit=10&_sort=createdAt:DESC')
+    
+    .subscribe(([data]: any)=>{
+      this.ChartData[0].data = [data.lpg,data.lpg,data.lpg,data.lpg];
+      this.ChartData[1].data = [data.temp,data.temp,data.temp,data.temp];
+      this.labels= [data.published_at,data.published_at,data.published_at,data.published_at];
+      this.chart.update();
+    });
+   
+
+    console.log(this.sub)
+  }
+
+  ngOnDestroy(){
+    this.sub.unsubscribe();
+    
+  }
+ 
 
 }
