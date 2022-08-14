@@ -32,7 +32,7 @@ export class Tab2Page implements OnInit, OnDestroy {
  //------------------------------------------refresh--------------------------------------> 
   doRefresh(event) {
     console.log('Begin async operation');
-
+  
     setTimeout(() => {
       console.log('Async operation has ended');
       event.target.complete();
@@ -41,9 +41,9 @@ export class Tab2Page implements OnInit, OnDestroy {
   
 //-----------------------------------------------API chart.js----------------------------------------------->
   public ChartData: ChartDataset[] =[
-    {data:[], label:'Temperatura',
-    backgroundColor:'#885E83', borderRadius: 20},
     {data:[], label:'Gas Licuado De Petroleo',
+    backgroundColor:'#885E83', borderRadius: 20},
+    {data:[], label:'Temperatura',
     backgroundColor:'#28FFBF', borderRadius: 20},
   ];
   public labels:string[]= [];
@@ -71,12 +71,12 @@ export class Tab2Page implements OnInit, OnDestroy {
   };
   
   ngOnInit(){
-    this.sub = this.http.get('http://localhost:1337/products?_limit=10&_sort=createdAt:DESC')
+    this.sub = this.http.get('http://localhost:1337/dataobjects?_limit=1&_sort=time:DESC')
     
     .subscribe(([data]: any)=>{
       this.ChartData[0].data = [data.lpg,data.lpg,data.lpg,data.lpg];
       this.ChartData[1].data = [data.temp,data.temp,data.temp,data.temp];
-      this.labels= [data.published_at,data.published_at,data.published_at,data.published_at];
+      this.labels= [data.date,data.date,data.date,data.date];
       this.chart.update();
     });
    

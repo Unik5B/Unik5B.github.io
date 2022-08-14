@@ -9,9 +9,9 @@ export class ProductService {
   constructor(
     private http: HttpClient
   ) { }
-    api = "http://localhost:1337/products"
-    api10 = "http://localhost:1337/products?_limit=10&_sort=createdAt:DESC"
-    apilast= "http://localhost:1337/products?_limit=1&_sort=createdAt:DESC"
+    api = "http://localhost:1337/dataobjects"
+    api10 = "http://localhost:1337/dataobjects?_limit=10&_sort=time:DESC"
+    apilast= "http://localhost:1337/dataobjects?_limit=1&_sort=time:DESC"
   getProduct(){
     return this.http.get(this.api)
   }

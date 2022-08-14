@@ -33,14 +33,14 @@ public options: ChartOptions = {
 };
 
   ngOnInit() {
-    this.sub = this.http.get('http://localhost:1337/products?_limit=1&_sort=createdAt:DESC')
+  this.sub = this.http.get('http://localhost:1337/dataobjects?_limit=1&_sort=time:DESC')
     
     .subscribe(([data]: any)=>{
       this.ChartData[0].data = [data.lpg,350-data.lpg];
       this.ChartData[1].data = [data.temp,350-data.temp];
       this.chart.update();
     });
-   
+
 
     console.log(this.sub)
   }

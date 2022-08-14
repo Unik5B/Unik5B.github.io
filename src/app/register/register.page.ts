@@ -13,9 +13,6 @@ const routeRedirect = document.createElement('routerLink');
 
 
 export class RegisterPage implements OnInit {
-
-  
-
   constructor(
     private userServices: UserService,
     private alertControll : AlertController,
